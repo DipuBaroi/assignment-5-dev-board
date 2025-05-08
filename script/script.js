@@ -21,6 +21,7 @@ themeButton.addEventListener('click', function(){
 
 const today = new Date();
 document.getElementById('current-date').innerText = today.toDateString();
+
 // completed button
 
 for(let i=0; i<completedButtons.length; i++){
@@ -28,24 +29,32 @@ for(let i=0; i<completedButtons.length; i++){
     completedButton.addEventListener('click', function(){
         completedButton.disabled = true;
         alert('Board Updated Successfully');
+
+        if(i >= completedButtons.length - 1){
+            alert('Congrats!!! You Have Completed All The Current Task')
+        }
+        
         
         taskAssign.innerText = Number(taskAssign.innerText) - 1;
         taskCompleted.innerText = Number(taskCompleted.innerText) + 1;
         
         const history = document.getElementById('history');
+
+        const taskCard = completedButton.closest('.task-card');
+        const cardTitle = taskCard.querySelector('.card-title').innerText;
+        
+
         const p = document.createElement('p');
-        const cardTitles = document.querySelectorAll('.card-title')
+       
+        
+        p.innerHTML = `
+        you have completed the task <strong>${cardTitle}</strong> At 2:30 PM
+        `;
 
-        for(let i = 0; i < cardTitles.length; i++){
-            console.log(cardTitles[i]);
-        }
-        p.innerText = 'you have completed the task Fix mobile button Issue At 2:30 PM';
-
-        p.className = 'bg-white font-semibold p-4 mt-2 rounded-lg'
+        p.className = 'bg-white font-bold p-4 mt-2 rounded-lg';
 
         history.appendChild(p)
-        
-        
+       
     })
 }
 // clear history button
