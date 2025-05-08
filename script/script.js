@@ -2,10 +2,17 @@ const completedButtons = document.querySelectorAll('.completed-btn');
 const taskAssign = document.getElementById('task-assign');
 const taskCompleted = document.getElementById('task-completed')
 
-const theme = document.getElementById('theme-btn');
+const bgColors = ['#f78a73', '#f7dd73', '#cdf773', '#73f7ad', '#a0f5fc', '#d2c0fa']
+let bgColor = 0;
 
-theme.addEventListener('click', function(){
-    document.getElementById('body').classList = 'bg-yellow-300'
+const themeButton = document.getElementById('theme-btn');
+
+themeButton.addEventListener('click', function(){
+    document.body.style.backgroundColor = bgColors[bgColor];
+    bgColor++;
+    if(bgColor >= bgColors.length){
+        bgColor = 0;
+    }
 })
 
 
