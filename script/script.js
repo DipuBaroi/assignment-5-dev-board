@@ -2,6 +2,8 @@ const completedButtons = document.querySelectorAll('.completed-btn');
 const taskAssign = document.getElementById('task-assign');
 const taskCompleted = document.getElementById('task-completed')
 
+// theme button
+
 const bgColors = ['#f78a73', '#f7dd73', '#cdf773', '#73f7ad', '#a0f5fc', '#d2c0fa']
 let bgColor = 0;
 
@@ -15,6 +17,11 @@ themeButton.addEventListener('click', function(){
     }
 })
 
+// current date
+
+const today = new Date();
+document.getElementById('current-date').innerText = today.toDateString();
+// completed button
 
 for(let i=0; i<completedButtons.length; i++){
     const completedButton = completedButtons[i];
@@ -41,6 +48,8 @@ for(let i=0; i<completedButtons.length; i++){
         
     })
 }
+// clear history button
+
 const clearHistoryBtn = document.getElementById('clear-history-btn');
 clearHistoryBtn.addEventListener('click', function(){
 
